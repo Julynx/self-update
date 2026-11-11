@@ -1,17 +1,20 @@
-# selfupdate.py
+# self-update
 
-Drop-in launch-time self-update for pip, pipx, and uv-installed CLI
-tools. One file, no dependencies beyond the standard library, works on
-Windows, Linux, and macOS.
+Single-file, zero-dependency self-update on launch for Python CLIs.
+Works on Windows, Linux, and macOS with pip, pipx, and uv
+installations.
 
 ## Usage
 
-Copy `selfupdate.py` into your project (inside your package or next to
-your entry point) and add two lines at the very top of your entry
-point, **before** any setup, try/finally, or UI:
+Install it, then add two lines at the very top of your entry point,
+**before** any setup, try/finally, or UI:
+
+```
+pip install self-update
+```
 
 ```python
-from . import selfupdate
+import selfupdate
 
 def main():
     if selfupdate.check("my-package"):
@@ -19,7 +22,9 @@ def main():
     # ... your normal startup ...
 ```
 
-`"my-package"` is your PyPI/distribution name. That is all.
+`"my-package"` is your app's PyPI/distribution name. That is all.
+Alternatively, vendor `selfupdate.py` into your project — it has no
+dependencies beyond the standard library.
 
 ## What it does
 
@@ -72,3 +77,7 @@ selfupdate.check(
 ## Tests
 
 `python test_selfupdate.py` — 39 offline tests, no network, no spawn.
+
+## License
+
+MIT — see [LICENSE](LICENSE).
