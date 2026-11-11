@@ -3,7 +3,7 @@ requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "self-update"
+name = "auto-self-update"
 version = "0.9.0"
 description = "Single-file, zero-dependency self-update on launch for Python CLIs."
 readme = "README.md"

@@ -10,7 +10,7 @@ Install it, then add two lines at the very top of your entry point,
 **before** any setup, try/finally, or UI:
 
 ```
-pip install self-update
+pip install auto-self-update
 ```
 
 ```python
