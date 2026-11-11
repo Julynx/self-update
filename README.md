@@ -23,7 +23,7 @@ def main():
 ```
 
 `"my-package"` is your app's PyPI/distribution name. That is all.
-Alternatively, vendor `selfupdate.py` into your project — it has no
+Alternatively, vendor `selfupdate.py` into your project: it has no
 dependencies beyond the standard library.
 
 ## What it does
@@ -39,14 +39,14 @@ dependencies beyond the standard library.
    actually advanced, and re-executes the original command with its
    arguments.
 4. Any failure prints the manual command and leaves the old install
-   untouched — the updater never relaunches a failed upgrade.
+   untouched; the updater never relaunches a failed upgrade.
 
 ## Skipped automatically
 
 - **Repository checkouts and editable installs** (found by walking up
   from the caller's file to a `pyproject.toml`; the walk stops at
   `site-packages`).
-- **Ephemeral `uvx` / `pipx run` caches** — a one-line note is printed
+- **Ephemeral `uvx` / `pipx run` caches**: a one-line note is printed
   instead; those refresh on their own schedule.
 - **Kill switches**: pass `enabled=False` (wire your own config toggle
   to it), or set `NO_AUTO_UPDATE` / `<PACKAGE>_NO_AUTO_UPDATE`
@@ -71,13 +71,13 @@ selfupdate.check(
   interruption cannot break a half-written install.
 - Two instances updating simultaneously serialize on the installer's
   own lock; the second finds nothing to do.
-- Keep your package's `__init__.py` light — good practice anyway; the
-  updater runs this module by file path and never imports your package.
+- Keep your package's `__init__.py` light. The updater runs this module
+  by file path and never imports your package.
 
 ## Tests
 
-`python test_selfupdate.py` — 39 offline tests, no network, no spawn.
+`python test_selfupdate.py`: 39 offline tests, no network, no spawn.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT, see [LICENSE](LICENSE).
