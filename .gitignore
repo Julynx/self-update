@@ -5,3 +5,4 @@ dist/
 .venv/
 
 PUBLISHING.md
+test_selfupdate.py
